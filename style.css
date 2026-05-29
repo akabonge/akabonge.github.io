@@ -402,6 +402,10 @@ section { padding: 96px 48px; position: relative; z-index: 1; }
   background: linear-gradient(135deg, #2d1a1a 0%, #4a2828 50%, #6b3636 100%);
 }
 
+.demo-card-preview.ironclad {
+  background: linear-gradient(135deg, #1a0f05 0%, #2d1a08 50%, #3d2510 100%);
+}
+
 .demo-card-preview-label {
   position: absolute;
   bottom: 12px; right: 14px;
