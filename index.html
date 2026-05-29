@@ -11,10 +11,10 @@
   <meta property="og:url" content="https://aialo.io" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <!-- Plausible Analytics — replace 'aialo.io' with your domain after creating account at plausible.io -->
-  <script defer data-domain="aialo.io" src="https://plausible.io/js/script.js"></script>
+  <!-- GoatCounter Analytics — free, no cookies, privacy-first. Sign up at goatcounter.com, claim 'aialo', then this goes live. -->
+  <script data-goatcounter="https://aialo.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -48,6 +48,7 @@
 
 <!-- HERO -->
 <section class="hero">
+  <canvas id="particle-canvas" class="particle-canvas" aria-hidden="true"></canvas>
   <div class="hero-glow"></div>
   <div class="hero-inner">
     <div class="hero-left">
@@ -105,6 +106,58 @@
           <span>Fredericksburg, VA</span>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true"><div class="scroll-indicator-line"></div></div>
+</section>
+
+<!-- WHAT I BUILD -->
+<section class="services-section">
+  <div class="services-inner">
+    <p class="section-eyebrow">What I Build</p>
+    <h2 class="section-title">AI that works in<br />the real world.</h2>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        </div>
+        <div class="service-name">AI Automation</div>
+        <p class="service-desc">End-to-end pipelines from raw data to intelligent output. Built for production, not just demos.</p>
+        <ul class="service-points">
+          <li>RAG chatbots grounded in real knowledge bases</li>
+          <li>Workflow automation for local businesses</li>
+          <li>Claude, Bedrock, and Ollama integration</li>
+        </ul>
+      </div>
+
+      <div class="service-card service-card-featured reveal">
+        <div class="service-badge">Core Expertise</div>
+        <div class="service-icon-wrap featured-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"></path><path d="M12 6v6l4 2"></path><circle cx="18" cy="6" r="3" fill="currentColor" opacity=".4"></circle></svg>
+        </div>
+        <div class="service-name">LLM Engineering</div>
+        <p class="service-desc">Prompt engineering, hallucination control, and guardrails. AI you can trust to make the right call.</p>
+        <ul class="service-points">
+          <li>Prompt injection defense and input validation</li>
+          <li>PII redaction and structured JSON outputs</li>
+          <li>Evaluation frameworks across latency and faithfulness</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </div>
+        <div class="service-name">Data Science</div>
+        <p class="service-desc">PySpark pipelines, Power BI dashboards, and statistical analysis. Turning data into clear decisions.</p>
+        <ul class="service-points">
+          <li>Databricks and PySpark at scale</li>
+          <li>Feature engineering and ML modeling</li>
+          <li>Stakeholder-ready reporting and visualization</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
@@ -178,7 +231,7 @@
           <button class="exp-toggle" onclick="toggleExp(this)" aria-expanded="true">
             <div class="exp-header">
               <div>
-                <div class="exp-role">AI Engineering Intern — Security & Compliance Automation</div>
+                <div class="exp-role">AI Engineering Intern | Security and Compliance Automation</div>
                 <div class="exp-company">SyncData.ai · Commonwealth Cyber Initiative Scholar · Remote</div>
               </div>
               <div class="exp-right">
@@ -703,6 +756,85 @@ document.addEventListener('click', e => {
     menu.classList.remove('open');
   }
 });
+
+// ── Particle network ──────────────────────────────────────────────────────────
+(function () {
+  const canvas = document.getElementById('particle-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const mouse = { x: -9999, y: -9999 };
+  let particles = [];
+  const COUNT = 65, CONNECT = 140, MOUSE_R = 130;
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  function makeParticle() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.42,
+      vy: (Math.random() - 0.5) * 0.42,
+      r: Math.random() * 1.4 + 0.7,
+    };
+  }
+
+  function init() { particles = Array.from({ length: COUNT }, makeParticle); }
+
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      const mdx = mouse.x - p.x, mdy = mouse.y - p.y;
+      const md = Math.hypot(mdx, mdy);
+      if (md < MOUSE_R && md > 0) { p.vx += mdx / md * 0.012; p.vy += mdy / md * 0.012; }
+      p.vx *= 0.982; p.vy *= 0.982;
+      p.x = (p.x + p.vx + canvas.width) % canvas.width;
+      p.y = (p.y + p.vy + canvas.height) % canvas.height;
+      for (let j = i + 1; j < particles.length; j++) {
+        const q = particles[j];
+        const d = Math.hypot(p.x - q.x, p.y - q.y);
+        if (d < CONNECT) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = `rgba(201,168,76,${(1 - d / CONNECT) * 0.2})`;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+      }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(201,168,76,0.5)';
+      ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { resize(); init(); }, 150);
+  });
+  window.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  window.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+  resize(); init(); tick();
+})();
+
+// ── Scroll reveal ─────────────────────────────────────────────────────────────
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 </script>
 </body>
 </html>
