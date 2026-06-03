@@ -406,6 +406,10 @@ section { padding: 96px 48px; position: relative; z-index: 1; }
   background: linear-gradient(135deg, #1a0f05 0%, #2d1a08 50%, #3d2510 100%);
 }
 
+.demo-card-preview.lawfirm {
+  background: linear-gradient(135deg, #1C1824 0%, #2D1420 50%, #3E1828 100%);
+}
+
 .demo-card-preview-label {
   position: absolute;
   bottom: 12px; right: 14px;
