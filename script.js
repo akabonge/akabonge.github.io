@@ -111,6 +111,41 @@
   );
   $$(".reveal").forEach((el) => obs.observe(el));
 
+  // ── Stat strip count-up ───────────────────────────────
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function animateCount(el) {
+    const target = parseInt(el.dataset.count, 10);
+    if (prefersReducedMotion || !target) {
+      el.textContent = String(target);
+      return;
+    }
+    const duration = 900;
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const statNums = $$(".stat-num");
+  if (statNums.length) {
+    const statObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            statNums.forEach(animateCount);
+            statObs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    statObs.observe(statNums[0]);
+  }
+
   // ── Nav shadow on scroll ─────────────────────────────
   const nav = $(".nav");
   function navDepth() {
