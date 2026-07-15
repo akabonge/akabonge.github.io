@@ -3,887 +3,689 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aloysious Kabonge — AI/ML Engineer & Data Scientist</title>
-  <meta name="description" content="AI/ML Engineer and Data Scientist. UMW Data Science graduate. Builder of intelligent, trustworthy AI systems. Based in Fredericksburg, VA." />
+  <title>Aloysious Kabonge · AI/ML Engineer & Data Scientist</title>
+  <meta name="description" content="Math & Data Science graduate. AI/ML engineer building trustworthy systems, from compliance automation to production LLM tools. Fredericksburg, VA." />
   <meta name="author" content="Aloysious Kabonge" />
-  <meta property="og:title" content="Aloysious Kabonge — AI/ML Engineer" />
-  <meta property="og:description" content="Building intelligent AI systems for real-world impact. 3 internships, NCUR 2026, ProofMode pitch finalist." />
+  <meta property="og:title" content="Aloysious Kabonge · AI Alo" />
+  <meta property="og:description" content="AI/ML engineer and Data Science graduate. Building intelligent systems for real-world impact." />
   <meta property="og:url" content="https://aialo.io" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <!-- GoatCounter Analytics — privacy-first, no cookies -->
   <script data-goatcounter="https://aialo.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-  <!-- Microsoft Clarity — heatmaps, session recordings, click tracking. Replace x1cy51npg0 with your project ID from clarity.microsoft.com -->
   <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","x1cy51npg0");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-mark">AK</div>
-    <span class="nav-logo-text">AI <span>Alo</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#demos">Demos</a></li>
-    <li><a href="mailto:aloysious310@gmail.com" class="nav-cta">Hire Me</a></li>
-  </ul>
-  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
-</nav>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#about" onclick="toggleMenu()">About</a>
-  <a href="#experience" onclick="toggleMenu()">Experience</a>
-  <a href="#projects" onclick="toggleMenu()">Projects</a>
-  <a href="#skills" onclick="toggleMenu()">Skills</a>
-  <a href="#demos" onclick="toggleMenu()">Demos</a>
-  <a href="mailto:aloysious310@gmail.com" onclick="toggleMenu()">Hire Me →</a>
+<header class="nav">
+  <a href="#" class="nav-brand" aria-label="AI Alo home">
+    <span class="nav-mark">AK</span>
+    <span class="nav-wordmark">AI <em>Alo</em></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#about">About</a>
+    <a href="#story">Journey</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Work</a>
+    <a href="#interests">Interests</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </nav>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <a href="#about">About</a>
+  <a href="#story">Journey</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Work</a>
+  <a href="#skills">Skills</a>
+  <a href="#demos">Demos</a>
+  <a href="#interests">Interests</a>
+  <a href="#contact">Contact</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO: brand, one headline, one sentence, CTAs, one dominant image -->
 <section class="hero">
-  <canvas id="particle-canvas" class="particle-canvas" aria-hidden="true"></canvas>
-  <div class="hero-glow"></div>
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Open to new opportunities · Fredericksburg, VA
-      </div>
-      <h1 class="hero-title">
-        Aloysious<br />Kabonge.<br />
-        <span class="accent">AI/ML Engineer.</span>
-      </h1>
-      <p class="hero-sub">
-        Data Science graduate from the University of Mary Washington.
-        I build intelligent, trustworthy AI systems at the intersection of
-        LLMs, data pipelines, and real-world workflows —
-        from enterprise compliance automation to local business AI tools.
+  <div class="hero-atmosphere" aria-hidden="true"></div>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="brand-signal">AI Alo</p>
+      <h1 class="hero-title">Aloysious Kabonge</h1>
+      <p class="hero-lede">
+        Math &amp; Data Science graduate building trustworthy AI systems,
+        from enterprise compliance automation to products people use.
       </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn-primary">View My Work</a>
-        <a href="mailto:aloysious310@gmail.com" class="btn-ghost">Get in Touch</a>
-        <a href="https://www.linkedin.com/in/aloysious-kabonge/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">3</div>
-          <div class="stat-label">Internships</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">5+</div>
-          <div class="stat-label">AI Projects</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">2nd</div>
-          <div class="stat-label">Pitch Finalist</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">NCUR</div>
-          <div class="stat-label">Researcher</div>
-        </div>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View work</a>
+        <a href="mailto:aloysious310@gmail.com" class="btn btn-secondary">Email</a>
+        <a href="https://www.linkedin.com/in/aloysious-kabonge/" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn</a>
       </div>
     </div>
-    <div class="hero-right">
-      <img src="photo.jpg" alt="Aloysious Kabonge" class="hero-photo" />
-      <div class="hero-photo-card">
-        <div class="photo-card-line">
-          <span class="photo-card-dot dot-green"></span>
-          <span>Available for hire</span>
-        </div>
-        <div class="photo-card-line">
-          <span class="photo-card-dot dot-gold"></span>
-          <span>AI/ML · Data Science</span>
-        </div>
-        <div class="photo-card-line">
-          <span class="photo-card-dot dot-blue"></span>
-          <span>Fredericksburg, VA</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-indicator" aria-hidden="true"><div class="scroll-indicator-line"></div></div>
-</section>
-
-<!-- WHAT I BUILD -->
-<section class="services-section">
-  <div class="services-inner">
-    <p class="section-eyebrow">What I Build</p>
-    <h2 class="section-title">AI that works in<br />the real world.</h2>
-    <div class="services-grid">
-
-      <div class="service-card reveal">
-        <div class="service-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-        </div>
-        <div class="service-name">AI Automation</div>
-        <p class="service-desc">End-to-end pipelines from raw data to intelligent output. Built for production, not just demos.</p>
-        <ul class="service-points">
-          <li>RAG chatbots grounded in real knowledge bases</li>
-          <li>Workflow automation for local businesses</li>
-          <li>Claude, Bedrock, and Ollama integration</li>
-        </ul>
-      </div>
-
-      <div class="service-card service-card-featured reveal">
-        <div class="service-badge">Core Expertise</div>
-        <div class="service-icon-wrap featured-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"></path><path d="M12 6v6l4 2"></path><circle cx="18" cy="6" r="3" fill="currentColor" opacity=".4"></circle></svg>
-        </div>
-        <div class="service-name">LLM Engineering</div>
-        <p class="service-desc">Prompt engineering, hallucination control, and guardrails. AI you can trust to make the right call.</p>
-        <ul class="service-points">
-          <li>Prompt injection defense and input validation</li>
-          <li>PII redaction and structured JSON outputs</li>
-          <li>Evaluation frameworks across latency and faithfulness</li>
-        </ul>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-        </div>
-        <div class="service-name">Data Science</div>
-        <p class="service-desc">PySpark pipelines, Power BI dashboards, and statistical analysis. Turning data into clear decisions.</p>
-        <ul class="service-points">
-          <li>Databricks and PySpark at scale</li>
-          <li>Feature engineering and ML modeling</li>
-          <li>Stakeholder-ready reporting and visualization</li>
-        </ul>
-      </div>
-
+    <div class="hero-visual">
+      <img src="photo.jpg" alt="Aloysious Kabonge" class="hero-photo" width="520" height="640" />
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-grid">
-    <div class="about-text">
-      <p class="section-eyebrow">About</p>
-      <h2 class="section-title">From Uganda<br />to builder.</h2>
+<section class="section" id="about">
+  <div class="section-head">
+    <span class="section-num">01</span>
+    <p class="eyebrow">About</p>
+    <h2 class="section-title">Builder at the intersection of logic and impact.</h2>
+  </div>
+  <div class="about-layout">
+    <div class="about-prose">
       <p>
-        I came from <strong>Uganda to the United States</strong> with dreams, questions, and a lot of hope.
-        I graduated from the <strong>University of Mary Washington</strong> in May 2026 with a B.S. in Data Science —
-        and that degree represents far more than an academic achievement. It represents family sacrifices,
-        community support, and the resilience it took to keep going.
+        I came from <strong>Uganda</strong> to the United States with questions and resolve.
+        In May 2026 I earned a <strong>B.S. in Mathematics and Data Science</strong> from the
+        University of Mary Washington, a first-generation degree built on family sacrifice, community, and steady work.
       </p>
       <p>
-        I thrive at the intersection of <strong>logic, technology, and real-world impact</strong>.
-        My work at SyncData.ai gave me deep experience in LLM evaluation and governance:
-        schema adherence, faithfulness, hallucination control, PII/PHI redaction,
-        prompt-injection resistance, and regression-style testing — building AI that teams can actually trust.
+        Employers know me for shipping AI that teams can trust: schema-valid pipelines,
+        LLM evaluation and guardrails, PII/PHI redaction, and clear stakeholder communication.
+        Mantra: <em>one day at a time</em>.
       </p>
-      <p>
-        I'm known for being <strong>curious, dependable, and collaborative</strong>. I learn quickly,
-        ask sharp questions, and communicate technical work in a way that helps teams make better decisions.
-        My guiding mantra: <em>"One day at a time."</em>
-      </p>
-      <div class="about-chips">
-        <span class="chip">Python</span><span class="chip">FastAPI</span>
-        <span class="chip">AWS Bedrock</span><span class="chip">Claude API</span>
-        <span class="chip">Ollama</span><span class="chip">Prompt Engineering</span>
-        <span class="chip">RAG Pipelines</span><span class="chip">LLM Evaluation</span>
-        <span class="chip">PostgreSQL</span><span class="chip">PySpark</span>
-        <span class="chip">ChromaDB</span><span class="chip">Pinecone</span>
-        <span class="chip">RabbitMQ</span><span class="chip">Redis</span>
-        <span class="chip">Docker</span><span class="chip">Power BI</span>
-        <span class="chip">Databricks</span><span class="chip">Next.js</span>
-        <span class="chip">Claude Code</span>
-      </div>
-    </div>
-    <div class="about-card">
-      <div class="about-card-name">Aloysious Kabonge</div>
-      <div class="about-card-title">AI/ML Engineer · Data Scientist</div>
-      <ul class="about-card-items">
-        <li>B.S. Data Science — University of Mary Washington, May 2026</li>
-        <li>Pi Mu Epsilon Mathematics Honor Society</li>
-        <li>AI Engineering Intern — SyncData.ai (Dec 2025 – Apr 2026)</li>
-        <li>BI Analyst Intern — Navy Federal Credit Union (Summer 2025)</li>
-        <li>Data Strategy Intern — banduri / Jade Rabbit AI (Spring 2025)</li>
-        <li>Resident Assistant, Orientation Leader, Peer Mentor — UMW (4 yrs)</li>
-        <li>2nd Place — UMW Eagle Egg Pitch Competition (ProofMode)</li>
-        <li>NCUR 2026 Research Presenter — EAS RAG Pipeline, Richmond VA</li>
-        <li>SQL Certified — DataCamp (Jul 2025)</li>
-        <li>Fredericksburg, Virginia 22401 · (540) 419-0472</li>
+      <ul class="about-highlights">
+        <li>Executive Support &amp; Innovation Intern · Flatter, Inc. (Jul 2026 – Present)</li>
+        <li>AI Engineering Intern · SyncData.ai · Security &amp; Compliance Automation</li>
+        <li>BI Analyst · Navy Federal Credit Union · PCS spend analysis</li>
+        <li>2nd Place · UMW Eagle Egg Pitch · ProofMode</li>
+        <li>NCUR 2026 presenter · Emergency Alerting RAG research</li>
       </ul>
+    </div>
+    <aside class="about-meta">
+      <dl>
+        <div><dt>Focus</dt><dd>AI/ML · Data Science</dd></div>
+        <div><dt>Location</dt><dd>Fredericksburg, VA</dd></div>
+        <div><dt>Education</dt><dd>UMW · Math &amp; Data Science · May 2026</dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/aloysious-kabonge/" target="_blank" rel="noopener">aloysious-kabonge</a></dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<!-- STORY / JOURNEY -->
+<section class="section section-story" id="story">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <p class="eyebrow">The Journey</p>
+    <h2 class="section-title">Persistence, mentorship, and a first-generation degree.</h2>
+  </div>
+
+  <div class="story-layout">
+    <figure class="story-photo-card">
+      <img src="story-photo.jpg" alt="Aloysious Kabonge in cap and gown at his University of Mary Washington graduation" width="900" height="1200" />
+      <figcaption>
+        <span>University of Mary Washington</span>
+        <span>First-Generation Graduate · Class of 2026</span>
+      </figcaption>
+    </figure>
+
+    <div class="story-copy">
+      <p>
+        I started my internship search as an international student on an F-1 visa, where extra
+        documentation requirements and employer hesitation made an already competitive process
+        harder. Early applications were rough. I didn&rsquo;t yet know how to present my skills, pitch
+        myself, or use LinkedIn as more than a listing board.
+      </p>
+      <p>
+        The turning point was becoming a Student Alumni Ambassador in spring 2023. That role put
+        me in rooms with alumni and mentors who helped me rebuild my resume around the right
+        experience, sharpen my elevator pitch, and learn the most underrated skill in a job
+        search: following up with genuine, lasting follow-through. UMW&rsquo;s Center for Career and
+        Professional Development backed that growth with workshops and one-on-one advising.
+      </p>
+      <p>
+        That discipline paid off directly: a spring 2025 internship with Banduri and a summer 2025
+        Business Intelligence internship with Navy Federal Credit Union, both sourced through
+        networks I had to learn how to build. Now, as a Rise Peer Mentor and Resident Assistant,
+        I pay it forward, helping other students, especially fellow international and
+        first-generation students, navigate the same path.
+      </p>
+      <blockquote class="story-quote">
+        Success is rarely a solo journey. There are people who genuinely want to see you thrive.
+      </blockquote>
+
+      <ol class="story-milestones">
+        <li><span class="story-year">2022</span><span>Arrived at UMW from Uganda to begin a B.S. in Mathematics and Data Science.</span></li>
+        <li><span class="story-year">2023</span><span>Became a Student Alumni Ambassador, Resident Assistant, and Orientation Leader.</span></li>
+        <li><span class="story-year">2025</span><span>Landed internships with Banduri and Navy Federal Credit Union through mentorship and networking.</span></li>
+        <li><span class="story-year">2026</span><span>Graduated as a first-generation college graduate and joined Flatter, Inc.</span></li>
+      </ol>
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section class="experience-section" id="experience">
-  <div class="exp-inner">
-    <p class="section-eyebrow">Experience</p>
-    <h2 class="section-title">Where I've worked.</h2>
+<section class="section section-alt" id="experience">
+  <div class="section-head">
+    <span class="section-num">03</span>
+    <p class="eyebrow">Experience</p>
+    <h2 class="section-title">Where I’ve worked.</h2>
+  </div>
 
-    <div class="timeline">
+  <div class="exp-list">
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <button class="exp-toggle" onclick="toggleExp(this)" aria-expanded="true">
-            <div class="exp-header">
-              <div>
-                <div class="exp-role">AI Engineering Intern | Security and Compliance Automation</div>
-                <div class="exp-company">SyncData.ai · Commonwealth Cyber Initiative Scholar · Remote</div>
-              </div>
-              <div class="exp-right">
-                <div class="exp-date">Dec 2025 – Apr 2026</div>
-                <span class="exp-chevron">▲</span>
-              </div>
-            </div>
-          </button>
-          <div class="exp-body open">
-            <p class="exp-desc">
-              Built AI-powered compliance automation tooling for regulated data workflows. Engineered a Python/FastAPI
-              ingestion service with MinIO quarantine storage, PostgreSQL metadata persistence, SHA-256 hashing,
-              RabbitMQ event publishing, and idempotent artifact handling. Designed canonical job state machines,
-              Redis worker message contracts, schema validation, and async processing pipelines.
-              Developed LLM enrichment workflows using Ollama and AWS Bedrock with structured JSON outputs,
-              PII/PHI redaction, hallucination checks, prompt versioning, and remediation guardrails.
-              Built executive-ready PDF/HTML compliance reports with AI transparency and traceability.
-              Evaluated LLM models across validity, latency, faithfulness, injection resistance, and factual grounding.
-            </p>
-            <div class="exp-tags">
-              <span class="exp-tag">FastAPI</span><span class="exp-tag">AWS Bedrock</span>
-              <span class="exp-tag">Ollama</span><span class="exp-tag">PostgreSQL</span>
-              <span class="exp-tag">RabbitMQ</span><span class="exp-tag">Redis</span>
-              <span class="exp-tag">MinIO</span><span class="exp-tag">LLM Evaluation</span>
-              <span class="exp-tag">Prompt Engineering</span><span class="exp-tag">PII Redaction</span>
-            </div>
+    <article class="exp-item is-open">
+      <button class="exp-head" type="button" aria-expanded="true">
+        <div class="exp-head-main">
+          <h3 class="exp-role">Executive Support &amp; Innovation Intern</h3>
+          <p class="exp-org">Flatter, Inc. · Spotsylvania County, VA · On-site</p>
+        </div>
+        <div class="exp-head-meta">
+          <time>Jul 2026 – Present</time>
+          <span class="exp-chevron" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="exp-panel">
+        <div class="exp-panel-inner">
+          <p>
+            Supporting executive operations and innovation initiatives at a Northern Virginia government
+            services firm operating under ISO 27001, NIST, and CMMC security frameworks. Researching,
+            evaluating, and piloting emerging technology including AI tooling in a Microsoft Azure / Azure
+            DevOps environment, and translating business needs into technology recommendations.
+          </p>
+          <div class="tag-row">
+            <span>Executive Ops</span><span>Innovation</span><span>AI Tooling</span><span>Azure DevOps</span><span>ISO 27001</span><span>CMMC</span>
           </div>
         </div>
       </div>
+    </article>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <button class="exp-toggle" onclick="toggleExp(this)" aria-expanded="false">
-            <div class="exp-header">
-              <div>
-                <div class="exp-role">Summer Associate Business Intelligence Analyst</div>
-                <div class="exp-company">Navy Federal Credit Union · Vienna, VA · Hybrid</div>
-              </div>
-              <div class="exp-right">
-                <div class="exp-date">May – Aug 2025</div>
-                <span class="exp-chevron">▼</span>
-              </div>
-            </div>
-          </button>
-          <div class="exp-body">
-            <p class="exp-desc">
-              Analyzed credit and debit card transactional data to understand how Active Duty members' spending
-              behavior changes during Permanent Change of Station (PCS) moves (2019–2024). Built scalable data
-              preparation pipelines in Databricks using PySpark, optimizing joins, aggregations, and feature
-              creation for repeatable reporting. Developed Power BI dashboards surfacing trends and segment
-              comparisons. Delivered stakeholder presentations translating complex analysis into actionable
-              member support recommendations.
-            </p>
-            <div class="exp-tags">
-              <span class="exp-tag">PySpark</span><span class="exp-tag">Databricks</span>
-              <span class="exp-tag">Power BI</span><span class="exp-tag">Excel</span>
-              <span class="exp-tag">Stakeholder Presentations</span>
-            </div>
+    <article class="exp-item">
+      <button class="exp-head" type="button" aria-expanded="false">
+        <div class="exp-head-main">
+          <h3 class="exp-role">AI Engineering Intern · Security &amp; Compliance Automation</h3>
+          <p class="exp-org">SyncData.ai · Remote · CCI Scholar</p>
+        </div>
+        <div class="exp-head-meta">
+          <time>Dec 2025 – Apr 2026</time>
+          <span class="exp-chevron" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="exp-panel">
+        <div class="exp-panel-inner">
+          <p>
+            Built AI-powered compliance automation for regulated data workflows. Python/FastAPI ingestion
+            with MinIO quarantine storage, PostgreSQL metadata, SHA-256 hashing, RabbitMQ publishing, and
+            idempotent artifacts. Designed job state machines, Redis worker contracts, schema validation,
+            and async pipelines. LLM enrichment via Ollama and AWS Bedrock with structured JSON, PII/PHI
+            redaction, and executive PDF/HTML compliance exports.
+          </p>
+          <div class="tag-row">
+            <span>FastAPI</span><span>AWS Bedrock</span><span>Ollama</span><span>PostgreSQL</span>
+            <span>RabbitMQ</span><span>Redis</span><span>MinIO</span><span>PII Redaction</span>
           </div>
         </div>
       </div>
+    </article>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <button class="exp-toggle" onclick="toggleExp(this)" aria-expanded="false">
-            <div class="exp-header">
-              <div>
-                <div class="exp-role">Data Strategy & Analysis Intern</div>
-                <div class="exp-company">banduri · Jade Rabbit AI Healthcare Product · Hybrid</div>
-              </div>
-              <div class="exp-right">
-                <div class="exp-date">Jan – Apr 2025</div>
-                <span class="exp-chevron">▼</span>
-              </div>
-            </div>
-          </button>
-          <div class="exp-body">
-            <p class="exp-desc">
-              Completed banduri's inaugural internship cohort in partnership with UMW College of Business.
-              Contributed to Jade Rabbit, an AI-driven healthcare product. Applied Change Architecture
-              framework to identify critical healthcare pain points and define customer segments.
-              Conducted quantitative and qualitative analyses to validate problem-solution fit.
-              Delivered final presentation to faculty, executives, and stakeholders with actionable
-              product roadmap insights.
-            </p>
-            <div class="exp-tags">
-              <span class="exp-tag">Product Strategy</span><span class="exp-tag">Healthcare AI</span>
-              <span class="exp-tag">Mixed Methods Research</span><span class="exp-tag">Stakeholder Comms</span>
-            </div>
+    <article class="exp-item">
+      <button class="exp-head" type="button" aria-expanded="false">
+        <div class="exp-head-main">
+          <h3 class="exp-role">Summer Associate · Business Intelligence Analyst</h3>
+          <p class="exp-org">Navy Federal Credit Union · Vienna, VA · Hybrid</p>
+        </div>
+        <div class="exp-head-meta">
+          <time>May 2025 – Aug 2025</time>
+          <span class="exp-chevron" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="exp-panel">
+        <div class="exp-panel-inner">
+          <p>
+            Analyzed credit and debit card transactional data to understand how Active Duty members’
+            spending changes during Permanent Change of Station (PCS) moves, 2019–2024. Built Databricks
+            pipelines with PySpark, developed Power BI dashboards, and delivered stakeholder presentations
+            with actionable member-support recommendations.
+          </p>
+          <div class="tag-row">
+            <span>PySpark</span><span>Databricks</span><span>Power BI</span><span>Excel</span>
           </div>
         </div>
       </div>
+    </article>
 
-      <div class="timeline-item">
-        <div class="timeline-dot timeline-dot-dim"></div>
-        <div class="timeline-content">
-          <button class="exp-toggle" onclick="toggleExp(this)" aria-expanded="false">
-            <div class="exp-header">
-              <div>
-                <div class="exp-role">Resident Assistant · Orientation Leader · Peer Mentor · Student Ambassador</div>
-                <div class="exp-company">University of Mary Washington · Fredericksburg, VA</div>
-              </div>
-              <div class="exp-right">
-                <div class="exp-date">2022 – 2026</div>
-                <span class="exp-chevron">▼</span>
-              </div>
-            </div>
-          </button>
-          <div class="exp-body">
-            <p class="exp-desc">
-              Four years of campus leadership across multiple concurrent roles. Served as an RA for 3+ years
-              supporting students in residence halls. Selected as an Orientation Leader for the Class of 2027.
-              Invited to speak at "Let's Talk Internships" sharing lessons from three internship experiences.
-              Active in African Student Union, NAACP, National Society of Collegiate Scholars,
-              and Pi Mu Epsilon Mathematics Honor Society. Volunteered with Habitat for Humanity in Winston-Salem, NC.
-            </p>
-            <div class="exp-tags">
-              <span class="exp-tag">Leadership</span><span class="exp-tag">Mentorship</span>
-              <span class="exp-tag">Public Speaking</span><span class="exp-tag">Community Building</span>
-            </div>
+    <article class="exp-item">
+      <button class="exp-head" type="button" aria-expanded="false">
+        <div class="exp-head-main">
+          <h3 class="exp-role">Data Strategy &amp; Analysis Intern</h3>
+          <p class="exp-org">banduri · Jade Rabbit AI · Hybrid</p>
+        </div>
+        <div class="exp-head-meta">
+          <time>Jan 2025 – Apr 2025</time>
+          <span class="exp-chevron" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="exp-panel">
+        <div class="exp-panel-inner">
+          <p>
+            Contributed to Jade Rabbit, an AI-driven healthcare product, in banduri’s inaugural internship
+            cohort with UMW College of Business. Applied Change Architecture and agile design thinking to
+            surface pain points, validate problem–solution fit, and deliver roadmap insights to executives.
+          </p>
+          <div class="tag-row">
+            <span>Healthcare AI</span><span>Change Architecture</span><span>Design Thinking</span>
           </div>
         </div>
       </div>
+    </article>
 
+    <article class="exp-item">
+      <button class="exp-head" type="button" aria-expanded="false">
+        <div class="exp-head-main">
+          <h3 class="exp-role">Campus Leadership · UMW</h3>
+          <p class="exp-org">University of Mary Washington · Fredericksburg, VA · 3 yrs 9 mos</p>
+        </div>
+        <div class="exp-head-meta">
+          <time>2022 – 2026</time>
+          <span class="exp-chevron" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="exp-panel">
+        <div class="exp-panel-inner">
+          <ul class="exp-roles-list">
+            <li><strong>Rise Peer Mentor</strong> · Aug 2023 – May 2026</li>
+            <li><strong>Student Alumni Ambassador</strong> · Mar 2023 – May 2026</li>
+            <li><strong>Resident Assistant</strong> · Jan 2023 – May 2026</li>
+            <li><strong>Orientation Leader</strong> · May 2023 – Jun 2023</li>
+            <li><strong>Student Fundraiser</strong> · Sep 2022 – Apr 2023</li>
+          </ul>
+          <p>
+            Concurrent leadership across residence life, alumni relations, mentorship, and orientation.
+            Active in African Student Union, NAACP, National Society of Collegiate Scholars, COAR volunteering,
+            and Pi Mu Epsilon.
+          </p>
+          <div class="tag-row">
+            <span>Leadership</span><span>Mentorship</span><span>Community</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section class="section" id="education">
+  <div class="section-head">
+    <span class="section-num">04</span>
+    <p class="eyebrow">Education &amp; Credentials</p>
+    <h2 class="section-title">Training that backs the work.</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-block">
+      <h3>University of Mary Washington</h3>
+      <p class="edu-degree">B.S. Mathematics, Data Science</p>
+      <p class="edu-meta">Aug 2022 – May 2026 · Fredericksburg, VA</p>
+      <p class="edu-act">
+        African Student Union · NAACP · National Society of Collegiate Scholars ·
+        Resident Assistant · Student Alumni Ambassador · Orientation Leader ·
+        COAR volunteer · Peer mentor · Pi Mu Epsilon
+      </p>
+    </div>
+    <div class="cert-list">
+      <h3>Certifications</h3>
+      <ul>
+        <li>
+          <span class="cert-name">Introduction to Claude Cowork</span>
+          <span class="cert-org">Anthropic · Jun 2026</span>
+        </li>
+        <li>
+          <span class="cert-name">SQL</span>
+          <span class="cert-org">DataCamp · Jul 2025</span>
+        </li>
+        <li>
+          <span class="cert-name">Pi Mu Epsilon</span>
+          <span class="cert-org">Mathematics Honor Society</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section class="projects-section" id="projects">
-  <div class="proj-inner">
-    <p class="section-eyebrow">Projects & Research</p>
-    <h2 class="section-title">Things I've built.</h2>
-    <div class="projects-grid">
+<section class="section section-alt" id="projects">
+  <div class="section-head">
+    <span class="section-num">05</span>
+    <p class="eyebrow">Projects &amp; Research</p>
+    <h2 class="section-title">Selected work.</h2>
+  </div>
 
-      <div class="project-card project-card-featured">
-        <div class="proj-badge">Live Product</div>
-        <div class="proj-icon">🔐</div>
-        <div class="proj-name">ProofMode</div>
-        <div class="proj-award">2nd Place · UMW Eagle Egg Pitch Competition</div>
-        <p class="proj-desc">
-          A secure proof-of-process platform for student writing. Students document writing checkpoints,
-          revision reflections, and source notes — generating a tamper-evident PDF with field-level
-          encryption, signed JWT sessions, Argon2 password hashing, and CSRF protection.
-          Built to address academic integrity in an AI-first world without relying on detection tools.
-        </p>
-        <div class="proj-tags">
-          <span class="proj-tag">FastAPI</span><span class="proj-tag">Next.js</span>
-          <span class="proj-tag">PostgreSQL</span><span class="proj-tag">Docker</span>
-          <span class="proj-tag">ReportLab</span><span class="proj-tag">JWT Auth</span>
-          <span class="proj-tag">Fernet Encryption</span>
+  <div class="work-list">
+    <article class="work-row reveal">
+      <div class="work-index">01</div>
+      <div class="work-body">
+        <div class="work-top">
+          <h3>ProofMode</h3>
+          <span class="work-status">Live · Mar 2026 – Present</span>
         </div>
-        <div class="proj-actions">
-          <a href="https://app.proofmode.co/" target="_blank" class="proj-btn proj-btn-primary">Live App ↗</a>
-          <a href="https://github.com/akabonge/proofmode" target="_blank" class="proj-btn proj-btn-secondary">GitHub</a>
+        <p class="work-award">2nd Place · UMW Eagle Egg Pitch Competition</p>
+        <p>
+          Proof-of-process for student writing, checkpoints and revision evidence, not AI detection.
+          Tamper-evident PDFs, field-level encryption, signed JWT sessions, Argon2 hashing.
+        </p>
+        <div class="tag-row">
+          <span>FastAPI</span><span>Next.js</span><span>PostgreSQL</span><span>Docker</span>
         </div>
       </div>
+      <div class="work-links">
+        <a href="https://app.proofmode.co/" target="_blank" rel="noopener">Live app</a>
+        <a href="https://github.com/akabonge/proofmode" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </article>
 
-      <div class="project-card">
-        <div class="proj-badge">Research</div>
-        <div class="proj-icon">📡</div>
-        <div class="proj-name">EAS RAG Pipeline</div>
-        <div class="proj-award">Presented at NCUR 2026 · Richmond, VA</div>
-        <p class="proj-desc">
-          An AI pipeline for analyzing Emergency Alerting System regulatory documents.
-          Hybrid retrieval with Pinecone serverless + ChromaDB fallback and automatic external web enrichment
-          via SerpAPI. Grounds LLM responses in trusted source material. Extended into a 911 call analyzer
-          and customer service tool. Originally fine-tuned on GPT-3.5 Turbo.
-        </p>
-        <div class="proj-tags">
-          <span class="proj-tag">RAG</span><span class="proj-tag">Pinecone</span>
-          <span class="proj-tag">ChromaDB</span><span class="proj-tag">OpenAI</span>
-          <span class="proj-tag">Streamlit</span><span class="proj-tag">SerpAPI</span>
-          <span class="proj-tag">Fine-tuning</span>
+    <article class="work-row reveal">
+      <div class="work-index">02</div>
+      <div class="work-body">
+        <div class="work-top">
+          <h3>AI Use Case for Emergency Alerting Systems</h3>
+          <span class="work-status">Aug 2025 – Apr 2026</span>
         </div>
-        <div class="proj-actions">
-          <a href="https://github.com/UMW-Projects/CPSC491Spring2026" target="_blank" class="proj-btn proj-btn-secondary">GitHub</a>
+        <p class="work-award">Presented at NCUR 2026 · Richmond, VA</p>
+        <p>
+          RAG pipeline for emergency alerting regulatory documents. Pinecone embeddings,
+          grounded retrieval, Streamlit and CLI interfaces.
+        </p>
+        <div class="tag-row">
+          <span>RAG</span><span>Pinecone</span><span>Embeddings</span><span>Streamlit</span>
         </div>
       </div>
+      <div class="work-links">
+        <a href="https://github.com/UMW-Projects/CPSC491Spring2026" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </article>
 
-      <div class="project-card">
-        <div class="proj-icon">🤖</div>
-        <div class="proj-name">AI Alo — Demo Portfolio</div>
-        <div class="proj-award">4 Production Demos · aialo.io</div>
-        <p class="proj-desc">
-          Three full-stack AI automation tools for local businesses — a restaurant chatbot,
-          real estate lead qualifier with CRM dashboard, and med spa treatment recommender
-          with candidacy screening. Each runs Claude with Ollama fallback, local embeddings,
-          and a provider-facing intelligence dashboard.
-        </p>
-        <div class="proj-tags">
-          <span class="proj-tag">FastAPI</span><span class="proj-tag">Claude API</span>
-          <span class="proj-tag">ChromaDB</span><span class="proj-tag">Ollama</span>
-          <span class="proj-tag">RAG</span><span class="proj-tag">Lead Scoring</span>
+    <article class="work-row reveal">
+      <div class="work-index">03</div>
+      <div class="work-body">
+        <div class="work-top">
+          <h3>AI Alo · Local Business Automations</h3>
+          <span class="work-status">5 live demos</span>
         </div>
-        <div class="proj-actions">
-          <a href="#demos" class="proj-btn proj-btn-primary">View Demos ↓</a>
+        <p>
+          Production-style AI assistants for restaurant, real estate, med spa, home services, and law.
+          Claude with Ollama fallback, local embeddings, and operator dashboards.
+        </p>
+        <div class="tag-row">
+          <span>FastAPI</span><span>Claude</span><span>ChromaDB</span><span>MCP</span>
         </div>
       </div>
-
-    </div>
+      <div class="work-links">
+        <a href="#demos">View demos</a>
+      </div>
+    </article>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section class="skills-section" id="skills">
-  <div class="skills-inner">
-    <p class="section-eyebrow">Skills</p>
-    <h2 class="section-title">What I bring to the table.</h2>
+<section class="section" id="skills">
+  <div class="section-head">
+    <span class="section-num">06</span>
+    <p class="eyebrow">Skills</p>
+    <h2 class="section-title">What I bring.</h2>
+  </div>
 
-    <div class="skills-grid">
-
-      <div class="skill-category">
-        <button class="skill-cat-toggle" onclick="toggleSkill(this)" aria-expanded="true">
-          <span class="skill-cat-icon">🧠</span>
-          <span class="skill-cat-name">AI / LLM Engineering</span>
-          <span class="skill-chevron">▲</span>
-        </button>
-        <div class="skill-cat-body open">
-          <div class="skill-tags">
-            <span class="skill-tag skill-hot">Prompt Engineering</span>
-            <span class="skill-tag skill-hot">RAG Pipelines</span>
-            <span class="skill-tag skill-hot">LLM Evaluation & Governance</span>
-            <span class="skill-tag skill-hot">Claude API</span>
-            <span class="skill-tag skill-hot">AWS Bedrock</span>
-            <span class="skill-tag skill-hot">Ollama (local LLMs)</span>
-            <span class="skill-tag">OpenAI API</span>
-            <span class="skill-tag">Hallucination Control</span>
-            <span class="skill-tag">PII/PHI Redaction</span>
-            <span class="skill-tag">Prompt Injection Defense</span>
-            <span class="skill-tag">Structured JSON Outputs</span>
-            <span class="skill-tag">LLM Fine-tuning</span>
-            <span class="skill-tag">Claude Code</span>
-            <span class="skill-tag">Agent Frameworks</span>
-          </div>
-        </div>
+  <div class="skill-boards">
+    <div class="skill-board is-open">
+      <button class="skill-board-head" type="button" aria-expanded="true">
+        <span>AI / LLM Engineering</span>
+        <span class="skill-count">14</span>
+      </button>
+      <div class="skill-board-body">
+        <button type="button" class="skill-chip skill-hot" data-skill>Prompt Engineering</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>RAG Pipelines</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>LLM Evaluation</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>Claude API</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>AWS Bedrock</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>Ollama</button>
+        <button type="button" class="skill-chip" data-skill>OpenAI API</button>
+        <button type="button" class="skill-chip" data-skill>Hallucination Control</button>
+        <button type="button" class="skill-chip" data-skill>PII/PHI Redaction</button>
+        <button type="button" class="skill-chip" data-skill>Prompt Injection Defense</button>
+        <button type="button" class="skill-chip" data-skill>Structured JSON</button>
+        <button type="button" class="skill-chip" data-skill>Fine-tuning</button>
+        <button type="button" class="skill-chip" data-skill>Claude Code</button>
+        <button type="button" class="skill-chip" data-skill>Agents</button>
       </div>
+    </div>
 
-      <div class="skill-category">
-        <button class="skill-cat-toggle" onclick="toggleSkill(this)" aria-expanded="true">
-          <span class="skill-cat-icon">📊</span>
-          <span class="skill-cat-name">Data Science & Analytics</span>
-          <span class="skill-chevron">▲</span>
-        </button>
-        <div class="skill-cat-body open">
-          <div class="skill-tags">
-            <span class="skill-tag skill-hot">Python</span>
-            <span class="skill-tag skill-hot">PySpark</span>
-            <span class="skill-tag skill-hot">Databricks</span>
-            <span class="skill-tag skill-hot">Power BI</span>
-            <span class="skill-tag">pandas</span>
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">scikit-learn</span>
-            <span class="skill-tag">Statistical Analysis</span>
-            <span class="skill-tag">Applied Mathematics</span>
-            <span class="skill-tag">Feature Engineering</span>
-            <span class="skill-tag">Excel</span>
-            <span class="skill-tag">Data Visualization</span>
-            <span class="skill-tag">SQL</span>
-          </div>
-        </div>
+    <div class="skill-board is-open">
+      <button class="skill-board-head" type="button" aria-expanded="true">
+        <span>Data Science &amp; Analytics</span>
+        <span class="skill-count">13</span>
+      </button>
+      <div class="skill-board-body">
+        <button type="button" class="skill-chip skill-hot" data-skill>Python</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>PySpark</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>Databricks</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>Power BI</button>
+        <button type="button" class="skill-chip" data-skill>pandas</button>
+        <button type="button" class="skill-chip" data-skill>NumPy</button>
+        <button type="button" class="skill-chip" data-skill>scikit-learn</button>
+        <button type="button" class="skill-chip" data-skill>Statistics</button>
+        <button type="button" class="skill-chip" data-skill>Applied Math</button>
+        <button type="button" class="skill-chip" data-skill>Feature Engineering</button>
+        <button type="button" class="skill-chip" data-skill>Excel</button>
+        <button type="button" class="skill-chip" data-skill>Visualization</button>
+        <button type="button" class="skill-chip" data-skill>SQL</button>
       </div>
+    </div>
 
-      <div class="skill-category">
-        <button class="skill-cat-toggle" onclick="toggleSkill(this)" aria-expanded="false">
-          <span class="skill-cat-icon">⚙️</span>
-          <span class="skill-cat-name">Backend & Infrastructure</span>
-          <span class="skill-chevron">▼</span>
-        </button>
-        <div class="skill-cat-body">
-          <div class="skill-tags">
-            <span class="skill-tag skill-hot">FastAPI</span>
-            <span class="skill-tag skill-hot">PostgreSQL</span>
-            <span class="skill-tag skill-hot">Docker</span>
-            <span class="skill-tag">RabbitMQ</span>
-            <span class="skill-tag">Redis</span>
-            <span class="skill-tag">MinIO</span>
-            <span class="skill-tag">SQLAlchemy</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">Async Processing</span>
-            <span class="skill-tag">Job State Machines</span>
-            <span class="skill-tag">SHA-256 Hashing</span>
-            <span class="skill-tag">JWT Auth</span>
-            <span class="skill-tag">Next.js</span>
-          </div>
-        </div>
+    <div class="skill-board">
+      <button class="skill-board-head" type="button" aria-expanded="false">
+        <span>Backend &amp; Infrastructure</span>
+        <span class="skill-count">13</span>
+      </button>
+      <div class="skill-board-body">
+        <button type="button" class="skill-chip skill-hot" data-skill>FastAPI</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>PostgreSQL</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>Docker</button>
+        <button type="button" class="skill-chip" data-skill>RabbitMQ</button>
+        <button type="button" class="skill-chip" data-skill>Redis</button>
+        <button type="button" class="skill-chip" data-skill>MinIO</button>
+        <button type="button" class="skill-chip" data-skill>SQLAlchemy</button>
+        <button type="button" class="skill-chip" data-skill>REST APIs</button>
+        <button type="button" class="skill-chip" data-skill>Async Pipelines</button>
+        <button type="button" class="skill-chip" data-skill>State Machines</button>
+        <button type="button" class="skill-chip" data-skill>SHA-256</button>
+        <button type="button" class="skill-chip" data-skill>JWT</button>
+        <button type="button" class="skill-chip" data-skill>Next.js</button>
       </div>
+    </div>
 
-      <div class="skill-category">
-        <button class="skill-cat-toggle" onclick="toggleSkill(this)" aria-expanded="false">
-          <span class="skill-cat-icon">🗄️</span>
-          <span class="skill-cat-name">Vector Databases & Embeddings</span>
-          <span class="skill-chevron">▼</span>
-        </button>
-        <div class="skill-cat-body">
-          <div class="skill-tags">
-            <span class="skill-tag skill-hot">ChromaDB</span>
-            <span class="skill-tag skill-hot">Pinecone</span>
-            <span class="skill-tag skill-hot">sentence-transformers</span>
-            <span class="skill-tag">OpenAI Embeddings</span>
-            <span class="skill-tag">Hybrid Retrieval</span>
-            <span class="skill-tag">Semantic Search</span>
-            <span class="skill-tag">Vector Indexing</span>
-            <span class="skill-tag">Embedding Pipelines</span>
-          </div>
-        </div>
+    <div class="skill-board">
+      <button class="skill-board-head" type="button" aria-expanded="false">
+        <span>Vector DBs &amp; Soft Skills</span>
+        <span class="skill-count">12</span>
+      </button>
+      <div class="skill-board-body">
+        <button type="button" class="skill-chip skill-hot" data-skill>ChromaDB</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>Pinecone</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>sentence-transformers</button>
+        <button type="button" class="skill-chip" data-skill>Hybrid Retrieval</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>Communication</button>
+        <button type="button" class="skill-chip skill-hot" data-skill>Mentorship</button>
+        <button type="button" class="skill-chip" data-skill>Public Speaking</button>
+        <button type="button" class="skill-chip" data-skill>Stakeholder Presentations</button>
+        <button type="button" class="skill-chip" data-skill>Cross-functional Teams</button>
+        <button type="button" class="skill-chip" data-skill>Critical Thinking</button>
+        <button type="button" class="skill-chip" data-skill>Adaptability</button>
+        <button type="button" class="skill-chip" data-skill>Community Leadership</button>
       </div>
-
-      <div class="skill-category">
-        <button class="skill-cat-toggle" onclick="toggleSkill(this)" aria-expanded="false">
-          <span class="skill-cat-icon">🌟</span>
-          <span class="skill-cat-name">Soft Skills & Leadership</span>
-          <span class="skill-chevron">▼</span>
-        </button>
-        <div class="skill-cat-body">
-          <div class="skill-tags">
-            <span class="skill-tag skill-hot">Communication</span>
-            <span class="skill-tag skill-hot">Collaborative Problem Solving</span>
-            <span class="skill-tag skill-hot">Mentorship & Coaching</span>
-            <span class="skill-tag">Public Speaking</span>
-            <span class="skill-tag">Stakeholder Presentation</span>
-            <span class="skill-tag">Cross-functional Teamwork</span>
-            <span class="skill-tag">Intellectual Curiosity</span>
-            <span class="skill-tag">Adaptability</span>
-            <span class="skill-tag">Critical Thinking</span>
-            <span class="skill-tag">Growth Mindset</span>
-            <span class="skill-tag">Dependability</span>
-            <span class="skill-tag">Community Leadership</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <button class="skill-cat-toggle" onclick="toggleSkill(this)" aria-expanded="false">
-          <span class="skill-cat-icon">🛠️</span>
-          <span class="skill-cat-name">Tools & Platforms</span>
-          <span class="skill-chevron">▼</span>
-        </button>
-        <div class="skill-cat-body">
-          <div class="skill-tags">
-            <span class="skill-tag">Git / GitHub</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Claude Code</span>
-            <span class="skill-tag">AWS (Bedrock, S3)</span>
-            <span class="skill-tag">Render</span>
-            <span class="skill-tag">Railway</span>
-            <span class="skill-tag">GitHub Pages</span>
-            <span class="skill-tag">Streamlit</span>
-            <span class="skill-tag">Jupyter</span>
-            <span class="skill-tag">Postman</span>
-            <span class="skill-tag">SerpAPI</span>
-            <span class="skill-tag">ReportLab</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
+  <p class="skill-hint" id="skill-hint">Click chips to pin highlights · <span id="skill-pinned">0</span> selected</p>
 </section>
 
 <!-- DEMOS -->
-<section class="demos" id="demos">
-  <div class="demos-header">
-    <p class="section-eyebrow">AI Alo · Demo Portfolio</p>
-    <h2 class="section-title">Five demos.<br />Five real pain points solved.</h2>
-    <p class="section-sub">
-      Each demo is a fully functional AI automation app built for a specific local business vertical.
-      Every one runs on Claude (with Ollama as a local fallback), uses local embeddings, and is open source.
+<section class="section section-alt" id="demos">
+  <div class="section-head">
+    <span class="section-num">07</span>
+    <p class="eyebrow">AI Alo Demos</p>
+    <h2 class="section-title">Five verticals. Live products.</h2>
+    <p class="section-lede">
+      Functional AI automation for local businesses. Claude with Ollama fallback, local embeddings, open source.
     </p>
   </div>
-  <div class="demos-grid">
 
-    <div class="demo-card">
-      <div class="demo-card-preview bistro">🍽️<span class="demo-card-preview-label">Demo 01</span></div>
-      <div class="demo-card-body">
-        <div class="demo-number">Demo 01 · Restaurant</div>
-        <div class="demo-name">Casa Alo's Bistro</div>
-        <div class="demo-industry">Fredericksburg, VA · Italian Restaurant</div>
-        <ul class="demo-features">
-          <li>Aria — AI chatbot embedded in restaurant website</li>
-          <li>RAG over full menu, hours, specials &amp; FAQs</li>
-          <li>Answers reservation, allergy &amp; dietary questions 24/7</li>
-          <li>Claude + Ollama local fallback, local embeddings</li>
-        </ul>
-        <div class="demo-stack">
-          <span class="stack-tag">FastAPI</span><span class="stack-tag">ChromaDB</span>
-          <span class="stack-tag">Claude</span><span class="stack-tag">Ollama</span>
-        </div>
-        <div class="demo-actions">
-          <a href="https://alorestaurant-production.up.railway.app" target="_blank" class="demo-btn demo-btn-primary">Live Demo →</a>
-          <a href="https://github.com/akabonge/alorestaurant" target="_blank" class="demo-btn demo-btn-secondary">GitHub</a>
-        </div>
+  <div class="demo-list">
+    <a class="demo-row reveal" href="https://alorestaurant-production.up.railway.app" target="_blank" rel="noopener">
+      <span class="demo-num">01</span>
+      <div class="demo-info">
+        <h3>Casa Alo’s Bistro</h3>
+        <p>Restaurant · Aria books reservations and answers menu questions 24/7</p>
       </div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-card-preview realty">🏡<span class="demo-card-preview-label">Demo 02</span></div>
-      <div class="demo-card-body">
-        <div class="demo-number">Demo 02 · Real Estate</div>
-        <div class="demo-name">Rappahannock Realty</div>
-        <div class="demo-industry">Fredericksburg, VA · Real Estate Agency</div>
-        <ul class="demo-features">
-          <li>Scout — AI chatbot over 10 listings &amp; 8 neighborhoods</li>
-          <li>AI lead scoring (1–10) as a non-blocking background task</li>
-          <li>Lead Intelligence Dashboard — mini-CRM, auto-refresh</li>
-          <li>In-chat contact capture + personalized follow-up emails</li>
-        </ul>
-        <div class="demo-stack">
-          <span class="stack-tag">FastAPI</span><span class="stack-tag">ChromaDB</span>
-          <span class="stack-tag">Claude</span><span class="stack-tag">Ollama</span>
-        </div>
-        <div class="demo-actions">
-          <a href="https://realestate-production-bbce.up.railway.app" target="_blank" class="demo-btn demo-btn-primary">Live Demo →</a>
-          <a href="https://github.com/akabonge/realestate" target="_blank" class="demo-btn demo-btn-secondary">GitHub</a>
-        </div>
+      <span class="demo-go">Live</span>
+    </a>
+    <a class="demo-row reveal" href="https://realestate-production-bbce.up.railway.app" target="_blank" rel="noopener">
+      <span class="demo-num">02</span>
+      <div class="demo-info">
+        <h3>Rappahannock Realty</h3>
+        <p>Real estate · Scout qualifies leads and powers a mini-CRM dashboard</p>
       </div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-card-preview medspa">✨<span class="demo-card-preview-label">Demo 03</span></div>
-      <div class="demo-card-body">
-        <div class="demo-number">Demo 03 · Med Spa</div>
-        <div class="demo-name">Luminara Med Spa</div>
-        <div class="demo-industry">Fredericksburg, VA · Medical Aesthetics</div>
-        <ul class="demo-features">
-          <li>Luna — AI treatment recommender by stated concern</li>
-          <li>Candidacy pre-screener for injectables, laser &amp; peels</li>
-          <li>Provider Kanban Dashboard with pipeline revenue estimate</li>
-          <li>Lead scoring by treatment value + draft follow-up emails</li>
-        </ul>
-        <div class="demo-stack">
-          <span class="stack-tag">FastAPI</span><span class="stack-tag">ChromaDB</span>
-          <span class="stack-tag">Claude</span><span class="stack-tag">Ollama</span>
-        </div>
-        <div class="demo-actions">
-          <a href="https://med-spa-production.up.railway.app" target="_blank" class="demo-btn demo-btn-primary">Live Demo →</a>
-          <a href="https://github.com/akabonge/med-spa" target="_blank" class="demo-btn demo-btn-secondary">GitHub</a>
-        </div>
+      <span class="demo-go">Live</span>
+    </a>
+    <a class="demo-row reveal" href="https://med-spa-production.up.railway.app" target="_blank" rel="noopener">
+      <span class="demo-num">03</span>
+      <div class="demo-info">
+        <h3>Luminara Med Spa</h3>
+        <p>Med spa · Luna recommends treatments and screens candidacy</p>
       </div>
-    </div>
-
-
-    <div class="demo-card">
-      <div class="demo-card-preview ironclad">🔧<span class="demo-card-preview-label">Demo 04</span></div>
-      <div class="demo-card-body">
-        <div class="demo-number">Demo 04 · Home Services</div>
-        <div class="demo-name">Ironclad Home Services</div>
-        <div class="demo-industry">Fredericksburg, VA · HVAC, Plumbing &amp; Electrical</div>
-        <ul class="demo-features">
-          <li>Rex — AI dispatcher that books service calls in chat</li>
-          <li>Checks real technician availability, issues ticket numbers</li>
-          <li>Accurate price quotes pulled from live service database</li>
-          <li>Emergency 24/7 routing protocol built in</li>
-        </ul>
-        <div class="demo-stack">
-          <span class="stack-tag">FastAPI</span><span class="stack-tag">ChromaDB</span>
-          <span class="stack-tag">Claude</span><span class="stack-tag">MCP</span>
-        </div>
-        <div class="demo-actions">
-          <a href="https://ironclad-production-a158.up.railway.app" target="_blank" class="demo-btn demo-btn-primary">Live Demo →</a>
-          <a href="https://github.com/akabonge/ironclad" target="_blank" class="demo-btn demo-btn-secondary">GitHub</a>
-        </div>
+      <span class="demo-go">Live</span>
+    </a>
+    <a class="demo-row reveal" href="https://ironclad-production-a158.up.railway.app" target="_blank" rel="noopener">
+      <span class="demo-num">04</span>
+      <div class="demo-info">
+        <h3>Ironclad Home Services</h3>
+        <p>HVAC &amp; trades · Rex dispatches jobs and quotes from live data</p>
       </div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-card-preview lawfirm">⚖️<span class="demo-card-preview-label">Demo 05</span></div>
-      <div class="demo-card-body">
-        <div class="demo-number">Demo 05 · Law Firm</div>
-        <div class="demo-name">Billie Jean Law</div>
-        <div class="demo-industry">Fredericksburg, VA · Personal Injury, Family, Criminal &amp; Estate</div>
-        <ul class="demo-features">
-          <li>Vera — AI intake agent that books consultations 24/7</li>
-          <li>Virginia SOL calculator with urgency triage (critical / high / moderate)</li>
-          <li>The Docket — case management dashboard with SOL countdown</li>
-          <li>MCP server exposing all intake tools to any compatible client</li>
-        </ul>
-        <div class="demo-stack">
-          <span class="stack-tag">FastAPI</span><span class="stack-tag">ChromaDB</span>
-          <span class="stack-tag">Claude</span><span class="stack-tag">MCP</span>
-        </div>
-        <div class="demo-actions">
-          <a href="https://web-production-f0d91.up.railway.app" target="_blank" class="demo-btn demo-btn-primary">Live Demo →</a>
-          <a href="https://github.com/akabonge/lawfirm" target="_blank" class="demo-btn demo-btn-secondary">GitHub</a>
-        </div>
+      <span class="demo-go">Live</span>
+    </a>
+    <a class="demo-row reveal" href="https://web-production-f0d91.up.railway.app" target="_blank" rel="noopener">
+      <span class="demo-num">05</span>
+      <div class="demo-info">
+        <h3>Billie Jean Law</h3>
+        <p>Law firm · Vera handles intake, SOL triage, and booking</p>
       </div>
-    </div>
-
+      <span class="demo-go">Live</span>
+    </a>
   </div>
+</section>
+
+<!-- INTERESTS — premium interactive tiles -->
+<section class="section" id="interests">
+  <div class="section-head">
+    <span class="section-num">08</span>
+    <p class="eyebrow">Beyond the resume</p>
+    <h2 class="section-title">Interests.</h2>
+    <p class="section-lede">Select a tile to learn more, same curiosity that fuels the engineering work.</p>
+  </div>
+
+  <div class="interest-grid" role="list">
+    <button type="button" class="interest-tile" data-interest="cooking" aria-expanded="false" role="listitem">
+      <span class="interest-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M8 7h8M6 21h12M9 3c0 2 1.5 4 3 4s3-2 3-4"/></svg>
+      </span>
+      <span class="interest-label">Cooking</span>
+      <span class="interest-detail">All kinds of food, technique, culture, and feeding people well.</span>
+    </button>
+    <button type="button" class="interest-tile" data-interest="hiking" aria-expanded="false" role="listitem">
+      <span class="interest-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20l7-14 4 8 3-5 4 11H3z"/><circle cx="8" cy="7" r="1.5"/></svg>
+      </span>
+      <span class="interest-label">Hiking</span>
+      <span class="interest-detail">Trails and elevation, clear head, better decisions after the climb.</span>
+    </button>
+    <button type="button" class="interest-tile" data-interest="service" aria-expanded="false" role="listitem">
+      <span class="interest-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.5-7-10a4 4 0 018 0 4 4 0 018 0c0 5.5-7 10-7 10z"/></svg>
+      </span>
+      <span class="interest-label">Volunteering</span>
+      <span class="interest-detail">Community service and COAR, showing up for people outside the screen.</span>
+    </button>
+    <button type="button" class="interest-tile" data-interest="films" aria-expanded="false" role="listitem">
+      <span class="interest-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M7 5v14M17 5v14M3 9h18M3 15h18"/></svg>
+      </span>
+      <span class="interest-label">Film</span>
+      <span class="interest-detail">Movies as craft and escapism, especially big-canvas storytelling.</span>
+    </button>
+    <button type="button" class="interest-tile" data-interest="marvel" aria-expanded="false" role="listitem">
+      <span class="interest-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      </span>
+      <span class="interest-label">Marvel</span>
+      <span class="interest-detail">Longtime Marvel nerd, character arcs, cosmologies, and rewatch debates.</span>
+    </button>
+    <button type="button" class="interest-tile" data-interest="lotr" aria-expanded="false" role="listitem">
+      <span class="interest-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="10"/></svg>
+      </span>
+      <span class="interest-label">Lord of the Rings</span>
+      <span class="interest-detail">Middle-earth for the mythology, loyalty, and the long walk.</span>
+    </button>
+    <button type="button" class="interest-tile" data-interest="hp" aria-expanded="false" role="listitem">
+      <span class="interest-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20L12 4l8 16M8 14h8"/></svg>
+      </span>
+      <span class="interest-label">Harry Potter</span>
+      <span class="interest-detail">Found family, moral gray areas, and the joy of choosing your people.</span>
+    </button>
+    <button type="button" class="interest-tile" data-interest="games" aria-expanded="false" role="listitem">
+      <span class="interest-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg>
+      </span>
+      <span class="interest-label">Board games</span>
+      <span class="interest-detail">Settlers of Catan and Uno, strategy, luck, and table talk.</span>
+    </button>
+  </div>
+  <p class="interest-status" id="interest-status" aria-live="polite">Explore a tile</p>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="inner">
-    <p class="section-eyebrow">Contact</p>
-    <h2 class="section-title">Let's build something.</h2>
-    <p class="section-sub" style="margin: 0 auto;">
-      Looking for an AI/ML engineer, exploring a consulting engagement, or want to see a live demo?
-      I respond same day.
+<section class="section section-contact" id="contact">
+  <div class="section-head">
+    <span class="section-num">09</span>
+    <p class="eyebrow">Contact</p>
+    <h2 class="section-title">Let’s build something.</h2>
+    <p class="section-lede">
+      Open to AI/ML roles, innovation teams, and thoughtful collaborations. I respond the same day.
     </p>
-    <div class="contact-cards">
-      <a href="mailto:aloysious310@gmail.com" class="contact-card">
-        <span class="contact-card-icon">✉️</span>
-        <div>
-          <div class="contact-card-label">Email</div>
-          <div class="contact-card-value">aloysious310@gmail.com</div>
-        </div>
-      </a>
-      <a href="tel:+15404190472" class="contact-card">
-        <span class="contact-card-icon">📞</span>
-        <div>
-          <div class="contact-card-label">Phone</div>
-          <div class="contact-card-value">(540) 419-0472</div>
-        </div>
-      </a>
-      <a href="https://github.com/akabonge" target="_blank" class="contact-card">
-        <span class="contact-card-icon">⬡</span>
-        <div>
-          <div class="contact-card-label">GitHub</div>
-          <div class="contact-card-value">github.com/akabonge</div>
-        </div>
-      </a>
-      <a href="https://www.linkedin.com/in/aloysious-kabonge/" target="_blank" class="contact-card">
-        <span class="contact-card-icon">💼</span>
-        <div>
-          <div class="contact-card-label">LinkedIn</div>
-          <div class="contact-card-value">aloysious-kabonge</div>
-        </div>
-      </a>
-    </div>
+  </div>
+  <div class="contact-row">
+    <a href="mailto:aloysious310@gmail.com" class="contact-link">
+      <span class="contact-label">Email</span>
+      <span class="contact-value">aloysious310@gmail.com</span>
+    </a>
+    <a href="tel:+15404190472" class="contact-link">
+      <span class="contact-label">Phone</span>
+      <span class="contact-value">(540) 419-0472</span>
+    </a>
+    <a href="https://github.com/akabonge" target="_blank" rel="noopener" class="contact-link">
+      <span class="contact-label">GitHub</span>
+      <span class="contact-value">akabonge</span>
+    </a>
+    <a href="https://www.linkedin.com/in/aloysious-kabonge/" target="_blank" rel="noopener" class="contact-link">
+      <span class="contact-label">LinkedIn</span>
+      <span class="contact-value">aloysious-kabonge</span>
+    </a>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 <a href="#">Aloysious Kabonge</a> · AI Alo · Fredericksburg, VA</p>
-  <p>Built with FastAPI, Claude, ChromaDB · <a href="https://github.com/akabonge" target="_blank">Open source on GitHub</a></p>
+<footer class="site-footer">
+  <p>© 2026 Aloysious Kabonge · AI Alo · Fredericksburg, VA</p>
+  <p><a href="https://github.com/akabonge" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/aloysious-kabonge/" target="_blank" rel="noopener">LinkedIn</a></p>
 </footer>
 
-<script>
-function toggleExp(btn) {
-  const body = btn.nextElementSibling;
-  const chevron = btn.querySelector('.exp-chevron');
-  const isOpen = body.classList.contains('open');
-  body.classList.toggle('open', !isOpen);
-  chevron.textContent = isOpen ? '▼' : '▲';
-  btn.setAttribute('aria-expanded', !isOpen);
-}
-
-function toggleSkill(btn) {
-  const body = btn.nextElementSibling;
-  const chevron = btn.querySelector('.skill-chevron');
-  const isOpen = body.classList.contains('open');
-  body.classList.toggle('open', !isOpen);
-  chevron.textContent = isOpen ? '▼' : '▲';
-  btn.setAttribute('aria-expanded', !isOpen);
-}
-
-function toggleMenu() {
-  document.getElementById('mobile-menu').classList.toggle('open');
-}
-
-// Close mobile menu on outside click
-document.addEventListener('click', e => {
-  const menu = document.getElementById('mobile-menu');
-  const hamburger = document.querySelector('.nav-hamburger');
-  if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
-    menu.classList.remove('open');
-  }
-});
-
-// ── Particle network ──────────────────────────────────────────────────────────
-(function () {
-  const canvas = document.getElementById('particle-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const mouse = { x: -9999, y: -9999 };
-  let particles = [];
-  const COUNT = 65, CONNECT = 140, MOUSE_R = 130;
-
-  function resize() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
-
-  function makeParticle() {
-    return {
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.42,
-      vy: (Math.random() - 0.5) * 0.42,
-      r: Math.random() * 1.4 + 0.7,
-    };
-  }
-
-  function init() { particles = Array.from({ length: COUNT }, makeParticle); }
-
-  function tick() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-      const mdx = mouse.x - p.x, mdy = mouse.y - p.y;
-      const md = Math.hypot(mdx, mdy);
-      if (md < MOUSE_R && md > 0) { p.vx += mdx / md * 0.012; p.vy += mdy / md * 0.012; }
-      p.vx *= 0.982; p.vy *= 0.982;
-      p.x = (p.x + p.vx + canvas.width) % canvas.width;
-      p.y = (p.y + p.vy + canvas.height) % canvas.height;
-      for (let j = i + 1; j < particles.length; j++) {
-        const q = particles[j];
-        const d = Math.hypot(p.x - q.x, p.y - q.y);
-        if (d < CONNECT) {
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(201,168,76,${(1 - d / CONNECT) * 0.2})`;
-          ctx.lineWidth = 0.7;
-          ctx.stroke();
-        }
-      }
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(201,168,76,0.5)';
-      ctx.fill();
-    }
-    requestAnimationFrame(tick);
-  }
-
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => { resize(); init(); }, 150);
-  });
-  window.addEventListener('mousemove', e => {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-  });
-  window.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
-
-  resize(); init(); tick();
-})();
-
-// ── Scroll reveal ─────────────────────────────────────────────────────────────
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-</script>
+<script src="script.js"></script>
 </body>
 </html>
