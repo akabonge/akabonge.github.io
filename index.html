@@ -54,6 +54,7 @@
 <!-- HERO: brand, one headline, one sentence, CTAs, one dominant image -->
 <section class="hero">
   <div class="hero-atmosphere" aria-hidden="true"></div>
+  <canvas id="hero-network" class="hero-network" aria-hidden="true"></canvas>
   <div class="hero-grid">
     <div class="hero-copy">
       <p class="brand-signal">AI Alo</p>
@@ -393,10 +394,20 @@
           <span class="work-status">Live · Mar 2026 – Present</span>
         </div>
         <p class="work-award">2nd Place · UMW Eagle Egg Pitch Competition</p>
-        <p>
-          Proof-of-process for student writing, checkpoints and revision evidence, not AI detection.
-          Tamper-evident PDFs, field-level encryption, signed JWT sessions, Argon2 hashing.
-        </p>
+        <div class="work-case">
+          <div class="work-case-block">
+            <span class="work-case-label">Problem</span>
+            <p>AI-detection tools guess whether writing "looks like" AI after the fact, an adversarial arms race that punishes honest students and is trivial to spoof.</p>
+          </div>
+          <div class="work-case-block">
+            <span class="work-case-label">Approach</span>
+            <p>Built proof-of-process instead of detection: timestamped writing checkpoints and revision history sealed into tamper-evident PDFs, with field-level encryption, Argon2 password hashing, and signed JWT sessions.</p>
+          </div>
+          <div class="work-case-block">
+            <span class="work-case-label">Result</span>
+            <p>2nd place at the UMW Eagle Egg Pitch Competition; shipped as a live product on FastAPI, Next.js, and PostgreSQL.</p>
+          </div>
+        </div>
         <div class="tag-row">
           <span>FastAPI</span><span>Next.js</span><span>PostgreSQL</span><span>Docker</span>
         </div>
@@ -415,10 +426,20 @@
           <span class="work-status">Aug 2025 – Apr 2026</span>
         </div>
         <p class="work-award">Presented at NCUR 2026 · Richmond, VA</p>
-        <p>
-          RAG pipeline for emergency alerting regulatory documents. Pinecone embeddings,
-          grounded retrieval, Streamlit and CLI interfaces.
-        </p>
+        <div class="work-case">
+          <div class="work-case-block">
+            <span class="work-case-label">Problem</span>
+            <p>Emergency alerting regulatory documents are dense and scattered across agencies, making it slow for staff to find grounded, citable answers during time-sensitive decisions.</p>
+          </div>
+          <div class="work-case-block">
+            <span class="work-case-label">Approach</span>
+            <p>Built a retrieval-augmented generation pipeline over the regulatory corpus, Pinecone vector embeddings for retrieval, grounded generation with source citations, exposed through both a Streamlit UI and a CLI.</p>
+          </div>
+          <div class="work-case-block">
+            <span class="work-case-label">Result</span>
+            <p>Selected to present at the National Conference on Undergraduate Research (NCUR) 2026 in Richmond, VA.</p>
+          </div>
+        </div>
         <div class="tag-row">
           <span>RAG</span><span>Pinecone</span><span>Embeddings</span><span>Streamlit</span>
         </div>
@@ -435,10 +456,20 @@
           <h3>AI Alo · Local Business Automations</h3>
           <span class="work-status">5 live demos</span>
         </div>
-        <p>
-          Production-style AI assistants for restaurant, real estate, med spa, home services, and law.
-          Claude with Ollama fallback, local embeddings, and operator dashboards.
-        </p>
+        <div class="work-case">
+          <div class="work-case-block">
+            <span class="work-case-label">Problem</span>
+            <p>Local businesses want AI automation but have no low-risk way to see it working on their own use case before committing budget to it.</p>
+          </div>
+          <div class="work-case-block">
+            <span class="work-case-label">Approach</span>
+            <p>Shipped five production-style agentic assistants, restaurant, real estate, med spa, home services, and law, each with Claude tool-calling, an Ollama fallback, local embeddings via ChromaDB, an MCP server, and an operator admin dashboard. Guardrails cover 23 prompt-injection patterns plus session and rate limiting.</p>
+          </div>
+          <div class="work-case-block">
+            <span class="work-case-label">Result</span>
+            <p>Five distinct verticals live simultaneously on Railway, the core sales tool for the AI Alo consulting practice.</p>
+          </div>
+        </div>
         <div class="tag-row">
           <span>FastAPI</span><span>Claude</span><span>ChromaDB</span><span>MCP</span>
         </div>
@@ -558,6 +589,28 @@
     <h2 class="section-title">Five verticals. Live products.</h2>
     <p class="section-lede">
       Functional AI automation for local businesses. Claude with Ollama fallback, local embeddings, open source.
+      Try Aria live below, no separate tab required, then explore all five.
+    </p>
+  </div>
+
+  <div class="live-embed reveal">
+    <div class="live-embed-chrome">
+      <span class="live-embed-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="live-embed-url">alorestaurant-production.up.railway.app</span>
+      <span class="live-embed-badge"><i></i>Live</span>
+    </div>
+    <div class="live-embed-frame" id="live-embed-frame">
+      <iframe
+        id="live-embed-iframe"
+        src="https://alorestaurant-production.up.railway.app"
+        title="Casa Alo's Bistro, live site with the Aria chat assistant"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <p class="live-embed-caption">
+      This is the actual live product, not a screenshot. Open the chat bubble in the
+      bottom-right of the frame and ask Aria about tonight's specials or book a table for two.
     </p>
   </div>
 

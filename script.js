@@ -146,6 +146,153 @@
     statObs.observe(statNums[0]);
   }
 
+  // ── Live embed scaling (device-preview trick) ────────
+  // The embedded site has no mobile nav collapse, so on narrow
+  // screens we render it at its fixed desktop width and scale the
+  // whole iframe down to fit, rather than letting it reflow.
+  (function () {
+    const wrap = $("#live-embed-frame");
+    const frame = $("#live-embed-iframe");
+    if (!wrap || !frame) return;
+
+    const LOGICAL_WIDTH = 1280;
+
+    function applyScale() {
+      const containerW = wrap.clientWidth;
+      const containerH = wrap.clientHeight;
+      const scale = containerW / LOGICAL_WIDTH;
+      frame.style.height = containerH / scale + "px";
+      frame.style.transform = `scale(${scale})`;
+    }
+
+    applyScale();
+
+    let resizeTimer;
+    window.addEventListener(
+      "resize",
+      () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(applyScale, 150);
+      },
+      { passive: true }
+    );
+  })();
+
+  // ── Hero network visualization (proof of skill, not decor) ──
+  (function () {
+    const canvas = document.getElementById("hero-network");
+    const hero = canvas?.closest(".hero");
+    if (!canvas || !hero) return;
+
+    const ctx = canvas.getContext("2d");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const NODE_COUNT = 48;
+    const LINK_DIST = 130;
+    const GOLD = "201, 168, 76";
+
+    let w = 0, h = 0, dpr = 1, nodes = [], running = false, frame = null;
+
+    function resize() {
+      const rect = hero.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = rect.width;
+      h = rect.height;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      canvas.style.width = w + "px";
+      canvas.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function seed() {
+      nodes = Array.from({ length: NODE_COUNT }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: (Math.random() - 0.5) * 0.22,
+        r: Math.random() * 1.3 + 0.9,
+      }));
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      if (!reduceMotion) {
+        for (const n of nodes) {
+          n.x += n.vx;
+          n.y += n.vy;
+          if (n.x < 0 || n.x > w) n.vx *= -1;
+          if (n.y < 0 || n.y > h) n.vy *= -1;
+        }
+      }
+
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i], b = nodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < LINK_DIST) {
+            ctx.strokeStyle = `rgba(${GOLD}, ${(1 - dist / LINK_DIST) * 0.22})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      for (const n of nodes) {
+        ctx.fillStyle = `rgba(${GOLD}, 0.6)`;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function loop() {
+      draw();
+      if (running && !reduceMotion) frame = requestAnimationFrame(loop);
+    }
+
+    function start() {
+      if (running) return;
+      running = true;
+      loop();
+    }
+
+    function stop() {
+      running = false;
+      if (frame) cancelAnimationFrame(frame);
+    }
+
+    resize();
+    seed();
+    draw();
+
+    if (!reduceMotion) {
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => (e.isIntersecting ? start() : stop())),
+        { threshold: 0 }
+      );
+      io.observe(hero);
+    }
+
+    let resizeTimer;
+    window.addEventListener(
+      "resize",
+      () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          resize();
+          seed();
+          draw();
+        }, 150);
+      },
+      { passive: true }
+    );
+  })();
+
   // ── Nav shadow on scroll ─────────────────────────────
   const nav = $(".nav");
   function navDepth() {
