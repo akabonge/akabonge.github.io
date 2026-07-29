@@ -60,7 +60,7 @@
   --space-6: 32px;
   --space-7: 48px;
   --space-8: 72px;
-  --space-9: 96px;
+  --space-9: 64px;
 
   --radius: 6px;
   --radius-lg: 10px;
@@ -429,7 +429,13 @@ button { font: inherit; }
 
 /* ── Sections ───────────────────────────────────────── */
 .section {
+  /* z-index:0 (not just position:relative) is required here — without
+     it, .section establishes no local stacking context, so the
+     ::before wash's z-index:-1 escapes to the nearest ancestor that
+     *does* have one and paints behind the whole page instead of just
+     behind this section's own content. */
   position: relative;
+  z-index: 0;
   padding: var(--space-9) clamp(20px, 4vw, 48px);
   max-width: calc(var(--max) + 96px);
   margin: 0 auto;
@@ -611,6 +617,12 @@ button { font: inherit; }
   background: var(--surface);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+}
+
+.section-story::before {
+  background:
+    radial-gradient(ellipse 55% 65% at 100% 0%, rgba(15, 118, 110, 0.14), transparent 62%),
+    radial-gradient(ellipse 45% 50% at 0% 100%, rgba(29, 78, 216, 0.12), transparent 60%);
 }
 
 .story-layout {
