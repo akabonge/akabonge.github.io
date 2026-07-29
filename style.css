@@ -19,11 +19,25 @@
   --line:         rgba(11, 13, 18, 0.09);
   --line-strong:  rgba(11, 13, 18, 0.16);
 
-  /* One accent — deep teal (not purple / indigo) */
+  /* Primary accent — deep teal, used for interactive/functional color:
+     links, buttons, CTAs, focus states */
   --accent:       #0F766E;
   --accent-hover: #0D9488;
   --accent-soft:  rgba(15, 118, 110, 0.08);
   --accent-mid:   rgba(15, 118, 110, 0.16);
+
+  /* Secondary decorative accents — blue and orange, used for section
+     color washes and skill-category coding, never for links/buttons,
+     so the interactive color language stays single (teal) */
+  --blue:         #1D4ED8;
+  --blue-hover:   #2563EB;
+  --blue-soft:    rgba(29, 78, 216, 0.08);
+  --blue-mid:     rgba(29, 78, 216, 0.18);
+
+  --orange:       #C2410C;
+  --orange-hover: #EA580C;
+  --orange-soft:  rgba(194, 65, 12, 0.08);
+  --orange-mid:   rgba(194, 65, 12, 0.18);
 
   /* Navy bookends — hero + footer, with a warm gold accent for contrast */
   --navy:         #0B1220;
@@ -34,8 +48,8 @@
   --gold:         #C9A84C;
   --gold-soft:    rgba(201, 168, 76, 0.14);
 
-  --font-display: "Syne", sans-serif;
-  --font-body:    "Source Sans 3", sans-serif;
+  --font-display: "IBM Plex Sans", sans-serif;
+  --font-body:    "IBM Plex Sans", sans-serif;
   --font-mono:    "IBM Plex Mono", monospace;
 
   --space-1: 4px;
@@ -400,6 +414,12 @@ button { font: inherit; }
   color: var(--accent);
 }
 
+/* Each stat gets its own hue from the palette instead of one flat
+   accent repeated four times */
+.stat-item:nth-child(2) .stat-num { color: var(--blue); }
+.stat-item:nth-child(3) .stat-num { color: var(--orange); }
+.stat-item:nth-child(4) .stat-static { color: #B08A3E; }
+
 .stat-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -409,9 +429,57 @@ button { font: inherit; }
 
 /* ── Sections ───────────────────────────────────────── */
 .section {
+  position: relative;
   padding: var(--space-9) clamp(20px, 4vw, 48px);
   max-width: calc(var(--max) + 96px);
   margin: 0 auto;
+}
+
+/* Color washes — soft, blurred glows that carry blue/teal/orange down
+   the page so long text sections don't read as flat white space.
+   Purely decorative: z-index -1 keeps them behind all real content. */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#about::before {
+  background: radial-gradient(ellipse 50% 45% at 100% 0%, var(--accent-soft), transparent 60%);
+}
+
+#education::before {
+  background: radial-gradient(ellipse 55% 50% at 0% 100%, var(--blue-soft), transparent 60%);
+}
+
+#skills::before {
+  background:
+    radial-gradient(ellipse 45% 40% at 100% 10%, var(--blue-soft), transparent 60%),
+    radial-gradient(ellipse 45% 40% at 0% 90%, var(--orange-soft), transparent 60%);
+}
+
+#interests::before {
+  background: radial-gradient(ellipse 55% 45% at 100% 100%, var(--orange-soft), transparent 60%);
+}
+
+.section-contact::before {
+  background:
+    radial-gradient(ellipse 50% 60% at 0% 0%, var(--blue-soft), transparent 55%),
+    radial-gradient(ellipse 40% 50% at 100% 100%, var(--accent-soft), transparent 55%);
+}
+
+#experience::before {
+  background: radial-gradient(ellipse 45% 40% at 100% 0%, var(--accent-soft), transparent 60%);
+}
+
+#projects::before {
+  background: radial-gradient(ellipse 45% 40% at 0% 100%, var(--blue-soft), transparent 60%);
+}
+
+#demos::before {
+  background: radial-gradient(ellipse 45% 40% at 100% 100%, var(--orange-soft), transparent 60%);
 }
 
 .section-alt {
@@ -965,13 +1033,22 @@ button { font: inherit; }
 .skill-board {
   background: var(--surface);
   border: 1px solid var(--line);
+  border-left: 3px solid var(--board-accent, var(--line));
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: border-color 0.2s;
 }
 
 .skill-board:hover,
-.skill-board.is-open { border-color: var(--line-strong); }
+.skill-board.is-open { border-color: var(--board-accent-mid, var(--line-strong)); }
+.skill-board:hover,
+.skill-board.is-open { border-left-color: var(--board-accent, var(--line-strong)); }
+
+/* Per-category accent — carries the blue/orange/teal palette into
+   the one section that's otherwise a wall of chips */
+.skill-board--teal   { --board-accent: var(--accent); --board-accent-soft: var(--accent-soft); --board-accent-mid: var(--accent-mid); }
+.skill-board--blue   { --board-accent: var(--blue);   --board-accent-soft: var(--blue-soft);   --board-accent-mid: var(--blue-mid); }
+.skill-board--orange { --board-accent: var(--orange); --board-accent-soft: var(--orange-soft); --board-accent-mid: var(--orange-mid); }
 
 .skill-board-head {
   width: 100%;
@@ -989,13 +1066,14 @@ button { font: inherit; }
   letter-spacing: -0.01em;
 }
 
-.skill-board-head:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.skill-board-head:focus-visible { outline: 2px solid var(--board-accent, var(--accent)); outline-offset: -2px; }
 
 .skill-count {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--muted-2);
-  background: var(--bg-alt);
+  font-weight: 600;
+  color: var(--board-accent, var(--muted-2));
+  background: var(--board-accent-soft, var(--bg-alt));
   padding: 3px 8px;
   border-radius: 3px;
 }
@@ -1022,15 +1100,15 @@ button { font: inherit; }
 }
 
 .skill-chip:hover {
-  border-color: var(--accent-mid);
-  color: var(--accent);
+  border-color: var(--board-accent-mid, var(--accent-mid));
+  color: var(--board-accent, var(--accent));
   transform: translateY(-1px);
 }
 
 .skill-chip.skill-hot {
-  background: var(--accent-soft);
-  border-color: var(--accent-mid);
-  color: var(--accent);
+  background: var(--board-accent-soft, var(--accent-soft));
+  border-color: var(--board-accent-mid, var(--accent-mid));
+  color: var(--board-accent, var(--accent));
 }
 
 .skill-chip.is-pinned {
