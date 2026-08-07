@@ -385,73 +385,6 @@ button { font: inherit; }
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.1);
 }
 
-/* Credential card — overlaps the photo's lower-left corner, echoing
-   the hero as a quick-scan resume snapshot rather than just a portrait */
-.hero-card {
-  position: absolute;
-  left: -28px;
-  bottom: -28px;
-  width: calc(100% - 40px);
-  max-width: 300px;
-  background: var(--navy-surface);
-  border: 1px solid var(--gold-soft);
-  border-radius: var(--radius-lg);
-  padding: 20px 22px;
-  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
-}
-
-.hc-stat-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.hc-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.hc-stat-num {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.3rem;
-  letter-spacing: -0.02em;
-  color: var(--gold);
-  line-height: 1;
-}
-
-.hc-stat-label {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.03em;
-  color: var(--navy-muted);
-  text-align: center;
-}
-
-.hc-divider {
-  height: 1px;
-  background: var(--navy-line);
-  margin: 14px 0;
-}
-
-.hc-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.hc-tag {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.03em;
-  color: var(--navy-muted);
-  border: 1px solid var(--navy-line);
-  padding: 3px 8px;
-  border-radius: 3px;
-}
-
 /* ── Stat strip ─────────────────────────────────────── */
 .stat-strip {
   position: relative;
@@ -1654,13 +1587,6 @@ button { font: inherit; }
     justify-self: start;
     max-width: 320px;
     order: -1;
-  }
-
-  .hero-card {
-    position: static;
-    width: 100%;
-    max-width: none;
-    margin-top: 16px;
   }
 
   .hero-role { font-size: clamp(1.9rem, 8vw, 2.6rem); }
