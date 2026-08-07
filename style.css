@@ -385,6 +385,73 @@ button { font: inherit; }
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.1);
 }
 
+/* Credential card — overlaps the photo's lower-left corner, echoing
+   the hero as a quick-scan resume snapshot rather than just a portrait */
+.hero-card {
+  position: absolute;
+  left: -28px;
+  bottom: -28px;
+  width: calc(100% - 40px);
+  max-width: 300px;
+  background: var(--navy-surface);
+  border: 1px solid var(--gold-soft);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
+}
+
+.hc-stat-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hc-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.hc-stat-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hc-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+  color: var(--navy-muted);
+  text-align: center;
+}
+
+.hc-divider {
+  height: 1px;
+  background: var(--navy-line);
+  margin: 14px 0;
+}
+
+.hc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hc-tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
+  color: var(--navy-muted);
+  border: 1px solid var(--navy-line);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
 /* ── Stat strip ─────────────────────────────────────── */
 .stat-strip {
   position: relative;
@@ -729,15 +796,51 @@ button { font: inherit; }
   line-height: 1.5;
 }
 
-/* ── Experience (interactive reveal) ────────────────── */
+/* ── Experience (sticky intro + connected timeline) ──── */
+.exp-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.exp-sticky {
+  position: sticky;
+  top: calc(var(--nav-h) + 32px);
+}
+
+.exp-sticky .section-head { margin-bottom: 0; }
+
 .exp-list {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--line);
+  border-top: none;
+  border-left: 1px solid var(--line);
+  padding-left: 28px;
 }
 
 .exp-item {
   border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.exp-item::before {
+  content: "";
+  position: absolute;
+  left: -33px;
+  top: 30px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--line-strong);
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.exp-item.is-open::before,
+.exp-item:hover::before {
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .exp-head {
@@ -911,15 +1014,42 @@ button { font: inherit; }
   max-width: 48ch;
 }
 
-.cert-list ul { list-style: none; }
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
 
-.cert-list li {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--line);
+.cert-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
 }
+
+.cert-card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+.cert-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  width: fit-content;
+  font-weight: 600;
+}
+
+.cert-badge.badge-teal   { color: var(--accent); background: var(--accent-soft); }
+.cert-badge.badge-blue   { color: var(--blue);   background: var(--blue-soft); }
+.cert-badge.badge-orange { color: var(--orange); background: var(--orange-soft); }
 
 .cert-name { font-weight: 600; color: var(--ink-soft); }
 .cert-org {
@@ -1526,6 +1656,13 @@ button { font: inherit; }
     order: -1;
   }
 
+  .hero-card {
+    position: static;
+    width: 100%;
+    max-width: none;
+    margin-top: 16px;
+  }
+
   .hero-role { font-size: clamp(1.9rem, 8vw, 2.6rem); }
 
   .about-layout,
@@ -1534,6 +1671,20 @@ button { font: inherit; }
   .story-layout {
     grid-template-columns: 1fr;
   }
+
+  .exp-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .exp-sticky { position: static; }
+
+  .exp-list {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .exp-item::before { display: none; }
 
   .story-photo-card {
     position: static;
