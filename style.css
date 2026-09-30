@@ -369,6 +369,16 @@ button { font: inherit; }
   color: var(--gold);
 }
 
+.hero-3d-link {
+  margin-top: 16px;
+  gap: 8px;
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.hero-3d-link:hover { background: var(--gold-soft); }
+.hero-3d-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
 .hero-visual {
   position: relative;
   justify-self: end;
