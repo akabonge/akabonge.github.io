@@ -130,7 +130,10 @@
       </a>
     </div>
     <div class="hero-visual">
-      <img src="photo.jpg" alt="Aloysious Kabonge" class="hero-photo" width="520" height="640" />
+      <picture>
+        <source srcset="headshot.webp" type="image/webp" />
+        <img src="headshot.jpg" alt="Aloysious Kabonge" class="hero-photo" width="640" height="640" fetchpriority="high" decoding="async" />
+      </picture>
     </div>
   </div>
 </section>
@@ -203,7 +206,7 @@
 
   <div class="story-layout">
     <figure class="story-photo-card">
-      <img src="story-photo.jpg" alt="Aloysious Kabonge in cap and gown at his University of Mary Washington graduation" width="900" height="1200" />
+      <img src="story-photo.jpg" alt="Aloysious Kabonge in cap and gown at his University of Mary Washington graduation" width="900" height="1373" loading="lazy" decoding="async" />
       <figcaption>
         <span>University of Mary Washington</span>
         <span>First-Generation Graduate · Class of 2026</span>

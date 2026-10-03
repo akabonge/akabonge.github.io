@@ -97,7 +97,7 @@ body::before {
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--accent-hover); }
 
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 button { font: inherit; }
 
 /* ── Progress (product-like, not game XP) ───────────── */
@@ -381,18 +381,21 @@ button { font: inherit; }
 
 .hero-visual {
   position: relative;
-  justify-self: end;
-  width: 100%;
-  max-width: 420px;
+  justify-self: center;
+  width: clamp(240px, 24vw, 320px);
 }
 
+/* Circular headshot: thin gold ring, navy gap, soft gold glow. */
 .hero-photo {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1;
   object-fit: cover;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--navy-line);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.1);
+  object-position: 50% 40%;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  padding: 6px;
+  background: var(--navy);
+  box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.25), 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 80px rgba(201, 168, 76, 0.18);
 }
 
 /* ── Stat strip ─────────────────────────────────────── */
@@ -1601,14 +1604,17 @@ button { font: inherit; }
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 28px;
   }
 
+  /* Phone: small avatar above the role so name and title stay in the first screen. */
   .hero-visual {
     justify-self: start;
-    max-width: 320px;
+    width: clamp(120px, 38vw, 148px);
     order: -1;
   }
+
+  .hero-photo { padding: 4px; }
 
   .hero-role { font-size: clamp(1.9rem, 8vw, 2.6rem); }
 
@@ -1705,7 +1711,8 @@ button { font: inherit; }
 
 @media (max-width: 480px) {
   .interest-grid { grid-template-columns: 1fr; }
-  .hero-ctas { width: 100%; }
+  .hero-ctas { width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
+  .hero-ctas .btn { white-space: nowrap; }
   .btn { flex: 1; }
   .stat-strip { grid-template-columns: repeat(2, 1fr); }
 }
